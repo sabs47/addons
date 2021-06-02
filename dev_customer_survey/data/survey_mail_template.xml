@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="res_partner_survey_template" model="mail.template">
+        <field name="name">Partner Survey - Send by Email</field>
+        <field name="email_from">${(object.company_id.email  or 'noreply@localhost'}</field>
+        <field name="subject">Customer Survey ${object.survey_id.name}</field>
+        <field name="email_to">${object.email}</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="lang">${object.lang}</field>
+        <field name="body_html" type="html">
+            <p>Dear ${object.name},
+                % set access_url = object.survey_url()
+            </p>
+            <p>We are conducting a survey, and your response would be appreciated</p>
+            <p>
+                <a href="${access_url}" style="margin-left: 85px;padding:5px 10px; border-radius: 3px;background-color:#875A7B;text-align:center;text-decoration:none;color:#F7FBFD;">Please, click here to
+                    start Survey
+                </a>
+            </p>
+            <p>Thanks for your participation!</p>
+        </field>
+    </record>
+</odoo>

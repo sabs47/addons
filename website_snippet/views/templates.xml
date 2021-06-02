@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="content_new_snippet" inherit_id="website.user_navbar">
+        <xpath expr="//div[@id='o_new_content_menu_choices']/div[hasclass('container')]/div[hasclass('row')]" position="inside">
+            <div groups="website.group_website_designer" class="col-md-4 mb8 o_new_content_element">
+                <a href="#" data-action="new_snippet">
+                    <i class="fa fa-th-large"/>
+                    <p>New Building Block</p>
+                </a>
+            </div>
+        </xpath>
+    </template>
+    
+</odoo>

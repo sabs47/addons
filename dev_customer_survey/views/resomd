@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="dev_res_partner_survey_inherit" model="ir.ui.view">
+        <field name="name">dev.res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+              <xpath expr="//page[@name='sales_purchases']" position="after">
+                     <page string="Survey History">
+                             <field name="survey_histroy_id" />
+                        </page>
+              </xpath>
+        
+            <xpath expr="//field[@name='website']" position="before">
+                    <field name="survey_id"/>
+            </xpath>  
+               <div name="button_box" position="inside">  
+                    <button name="update_survey_id"
+                        class="oe_stat_button"
+                        icon="fa-user"
+                        >
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Démmarer</span>
+                            <span class="o_stat_text">Audit</span>
+                        </div>
+                    </button>
+                     <button name="action_print_survey"
+                        class="oe_stat_button"
+                        icon="fa-print"
+                        type="object"
+                        help="Print Survey report"
+                        attrs="{'invisible':[('survey_id','=',False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Print</span>
+                            <span class="o_stat_text">Interview</span>
+                        </div>
+                    </button>
+            </div>
+        </field>
+    </record>
+                  
+             
+    <act_window id ="assign_survey_view_action"
+        name="Update Survey Data"
+        res_model="res.partner"
+        binding_model="res.partner"
+        view_mode="form"
+        target="new"/>
+<!--    <record id="view_dev_res_partner_kanban_inherit" model="ir.ui.view">-->
+<!--        <field name="name">dev.res.partner.kanban.inherit</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.res_partner_kanban_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='country_id']" position="after">-->
+<!--                <field name="survey_id"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//div[hasclass('oe_kanban_partner_links')]" position="inside">-->
+<!--                <a t-if="record.survey_id.raw_value" name="action_print_survey" type="object" title="Display Survey Form">Survey Form</a>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

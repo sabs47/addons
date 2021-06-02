@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_snippet" name="Create New">
+        <section class="custom-snippet"><p>New Building Block</p></section>
+    </template>
+
+    <template id="snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_snippets" class="o_panel">
+                <div class="o_panel_header">
+                    <i class="fa fa-th-large"/> Custom Building Blocks
+                </div>
+                <div class="o_panel_body">
+                    <t t-snippet="website_snippet.s_snippet" t-thumbnail="/website_snippet/static/src/img/thumbnail.png"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="custom_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-js="custom_snippet" 
+                 data-selector=".custom-snippet" 
+                 data-drop-in=".oe_structure">
+            </div>
+            <div data-js="snippet_snippet" 
+                 data-selector=".snippet-snippet" 
+                 data-drop-in=".oe_structure">
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

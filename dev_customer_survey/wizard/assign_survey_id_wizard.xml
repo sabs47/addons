@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="assign_survey_view" model="ir.ui.view">
+        <field name="name">assign.survey.view</field>
+        <field name="model">assign.survey</field>
+        <field name="arch" type="xml">
+            <form string="Update Survey Data">
+                <p class="oe_grey">
+                    Are you sure update survey data.
+                </p>
+                <group>
+                    <group>
+                        <field name="survey_id"/>
+                    </group>
+                     <group>
+                    </group>
+                </group>
+                
+                <footer>
+                    <button name="update_survey_id" string="Update Survey" type="object" class="btn-primary"/>
+                    or
+                    <button name="asign_survey_template" string="Set And Send Survey" type="object" class="btn-primary"/>
+                    or
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id ="assign_survey_view_action"
+        name="Update Survey Datas"
+        res_model="assign.survey"
+        binding_model="res.partner"
+        view_mode="form"
+        target="new"/>
+</odoo>

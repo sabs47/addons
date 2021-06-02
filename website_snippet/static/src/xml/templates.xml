@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="website_snippet.new">
+        <div class="col-md-12">
+            <form id="ws_new">
+                <input placeholder="Title (ex.: Slider Block)" type="text" class="form-control" name="ws_title" required="True"/>
+                <br/>
+                <div role="tabpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link active" href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="html">
+                        <div id="ws-html-view-editor"/>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="css">
+                        <div id="ws-css-view-editor"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </t>
+</templates>

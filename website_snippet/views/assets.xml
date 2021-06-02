@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link href="/website_snippet/static/src/css/styles.css" rel="stylesheet"/>
+            <script type="text/javascript" src="/website_snippet/website_snippet.js"/>
+        </xpath>
+    </template>
+
+    <template id="frontend_layout" inherit_id="portal.frontend_layout">
+        <xpath expr="//head" position="inside">
+            <link href="/website_snippet/website_snippet.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+    <template id="assets_editor" inherit_id="website.assets_editor">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/website_snippet/static/src/js/website.editor.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

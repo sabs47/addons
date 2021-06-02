@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="website_snippet_view_tree" model="ir.ui.view">
+        <field name="name">website_snippet.snippet</field>
+        <field name="model">website_snippet.snippet</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="website_snippet_view_form" model="ir.ui.view">
+        <field name="name">website_snippet.snippet</field>
+        <field name="model">website_snippet.snippet</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Snippet HTML Templates">
+                <sheet>
+                    <div>
+                        This section is strictly meant to be used by a technical person, please read the disclaimer below.<br/>
+                        If you are not 100% sure of your code, please add it via website editor interface or consult for a professional assistance.<br/>
+                        <br/>
+                    </div>
+                    <field name="thumbnail" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Name"/>
+                        <h1><field name="name" placeholder="Name"/></h1>
+                    </div>
+                    <notebook>
+                        <page string="HTML">
+                            <field name="html_text" widget="ace"/>
+                        </page>
+                        <page string="CSS">
+                            <field name="css" widget="ace"/>
+                        </page>
+                        <page string="JavaScript">
+                            <field name="js" widget="ace"/>
+                        </page>
+                    </notebook>
+
+                    <div>
+                        <h3>Disclaimer</h3>
+                        Please validate all code so it would pass standards and is syntactically correct.<br/>
+                        If code is not valid, it could break other custom building blocks and in exteme cases whole website.<br/>
+                        If you are not 100% sure of you code, please consult for a professional assistance.<br/>
+                        The author/seller of the module will not be liable for any loss or damage of any nature.
+                        <br/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="act_window_website_snippet" model="ir.actions.act_window">
+        <field name="name">Custom Building Blocks</field>
+        <field name="res_model">website_snippet.snippet</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to create a new Building Block.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_website_snippet"
+              parent="website.menu_website_configuration"
+              action="act_window_website_snippet"
+              name="Custom Building Blocks"
+              sequence="99"/>
+
+</odoo>
